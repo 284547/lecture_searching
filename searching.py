@@ -31,6 +31,19 @@ def linear_search(sekvence, number):
         "count": len(positions)
     }
 
+def binary_search(order_sequence, number):
+    left = 0
+    right = len(order_sequence) -1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if order_sequence[mid] == number:
+            return mid
+        elif order_sequence[mid] < number:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return None
 
 
 
@@ -39,6 +52,8 @@ def main():
     sequential_data = read_data("sequential.json", "unordered_numbers")
     vysledek = linear_search(sequential_data, 33)
     print(vysledek)
+    ordered_data = binary_search(sequential_data, 22)
+    print (ordered_data)
 
 
 
