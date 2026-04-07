@@ -21,15 +21,25 @@ def read_data(file_name, field):
     return seq[field]
 
 def linear_search(sekvence, number):
-    position = []
-    count = 0
+    positions = []
+    for i in range(len(sekvence)):
+        if sekvence[i] == number:
+            positions.append(i)
+
+    return {
+        "position": positions,
+        "count": len(positions)
+    }
+
 
 
 
 
 def main():
     sequential_data = read_data("sequential.json", "unordered_numbers")
-    print(sequential_data)
+    vysledek = linear_search(sequential_data, 33)
+    print(vysledek)
+
 
 
 
